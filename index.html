@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electric Vehicles vs Diesel Cars</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; background:#f9fafb; color:#333; }
+
+    /* Navbar */
+    nav {
+      background:#222; color:white;
+      padding:1rem 2rem;
+      text-align:center;
+      font-size:1.5rem;
+      font-weight:bold;
+    }
+    nav span { color:#4ade80; }
+
+    /* Main Section (Options) */
+    .options {
+      display:flex; justify-content:center; gap:30px;
+      margin:50px auto; flex-wrap:wrap;
+    }
+    .option {
+      flex:1; min-width:250px;
+      background:white; padding:30px; border-radius:15px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
+      text-align:center; cursor:pointer;
+      transition:transform 0.3s, background 0.3s;
+    }
+    .option:hover { transform:translateY(-8px); background:#f1f5f9; }
+    .option h2 { margin-bottom:15px; color:#0284c7; }
+
+    /* Info Sections */
+    .info {
+      display:none;
+      max-width:900px;
+      margin:30px auto;
+      padding:30px;
+      background:white;
+      border-radius:12px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease-in-out;
+      line-height:1.6;
+    }
+    .info h2 { margin-bottom:15px; color:#16a34a; }
+    .info ul { margin-left:20px; line-height:1.7; }
+
+    /* Table */
+    table { width:100%; border-collapse:collapse; margin-top:20px; }
+    table, th, td { border:1px solid #ddd; }
+    th, td { padding:12px; text-align:center; }
+    th { background:#0284c7; color:white; }
+
+    /* FAQ */
+    .faq { margin-top:20px; }
+    .faq-item {
+      background:#f1f5f9;
+      margin:10px 0;
+      padding:15px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .faq-item h4 { margin:0; color:#0284c7; }
+    .faq-item p {
+      display:none;
+      margin-top:8px;
+      color:#333;
+      line-height:1.5;
+    }
+
+    /* Car Finder */
+    .car-form input { padding:10px; margin-right:10px; border:1px solid #ccc; border-radius:5px; }
+    .car-form button {
+      padding:10px 15px;
+      background:#0284c7; color:white;
+      border:none; border-radius:5px;
+      cursor:pointer;
+    }
+    .car-card {
+      border:1px solid #ddd; padding:15px; margin:15px 0;
+      border-radius:8px; background:#f9fafb;
+    }
+    .car-card h4 { margin-bottom:10px; color:#16a34a; }
+
+    /* Animation */
+    @keyframes fadeIn { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }
+
+    /* Footer */
+    footer { background:#222; color:white; text-align:center; padding:15px; margin-top:50px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>Electric Vehicles vs <span>Diesel Cars</span></nav>
+
+  <!-- Options -->
+  <div class="options">
+    <div class="option" onclick="showInfo('ev')"><h2>⚡ EV Cars</h2><p>Clean, efficient, and future-ready vehicles.</p></div>
+    <div class="option" onclick="showInfo('diesel')"><h2>🛢️ Diesel Cars</h2><p>Reliable, powerful, but not so eco-friendly.</p></div>
+    <div class="option" onclick="showInfo('comparison')"><h2>📊 Comparison</h2><p>See EV vs Diesel side by side.</p></div>
+    <div class="option" onclick="showInfo('finder')"><h2>🚗 Car Finder</h2><p>Find cars by your budget.</p></div>
+    <div class="option" onclick="showInfo('faq')"><h2>❓ FAQ</h2><p>Common questions answered.</p></div>
+  </div>
+
+  <!-- EV Section -->
+  <div id="ev" class="info">
+    <h2>Electric Vehicles (EVs)</h2>
+    <ul>
+      <li>Eco-friendly with <b>zero tailpipe emissions</b>, reducing air pollution.</li>
+      <li><b>Lower running and maintenance cost</b> since no oil changes, exhaust systems, or complex gearboxes are needed.</li>
+      <li><b>Government subsidies and tax benefits</b> reduce the overall price in many regions.</li>
+      <li>Offer <b>fast acceleration</b> and smooth, quiet driving experience.</li>
+      <li>Can be charged at home, at work, or at public charging stations.</li>
+      <li>Powered by <b>batteries and electric motors</b> – fewer moving parts than diesel cars.</li>
+      <li><b>Energy efficiency</b> is 3–4 times higher than internal combustion engines.</li>
+      <li>Regenerative braking helps recharge the battery while driving.</li>
+      <li>Can integrate with <b>renewable energy sources</b> like solar panels.</li>
+      <li>Best suited for <b>urban driving and daily commutes</b>.</li>
+    </ul>
+  </div>
+
+  <!-- Diesel Section -->
+  <div id="diesel" class="info">
+    <h2>Diesel Cars</h2>
+    <ul>
+      <li><b>Longer range per tank</b> compared to EVs – ideal for long highway drives.</li>
+      <li>Provide <b>higher torque</b>, making them suitable for towing and carrying heavy loads.</li>
+      <li>Fuel stations are widely available, giving convenience in rural and remote areas.</li>
+      <li>Engines are robust and <b>tried-and-tested technology</b> with decades of use.</li>
+      <li><b>Lower upfront cost</b> compared to most EVs.</li>
+      <li>Good resale value in some markets (though declining due to regulations).</li>
+      <li>But: <b>higher emissions</b>, contributing to pollution and climate change.</li>
+      <li>Maintenance is more frequent – requires oil changes, filters, exhaust treatment.</li>
+      <li><b>Fuel prices keep rising</b>, making long-term use expensive.</li>
+      <li>Facing <b>restrictions and bans</b> in several cities due to emission norms.</li>
+    </ul>
+  </div>
+
+  <!-- Comparison Section -->
+  <div id="comparison" class="info">
+    <h2>EV vs Diesel Cars – Side by Side</h2>
+    <table>
+      <tr><th>Feature</th><th>Electric Vehicle</th><th>Diesel Car</th></tr>
+      <tr><td>Running Cost</td><td>₹1–2 per km</td><td>₹5–8 per km</td></tr>
+      <tr><td>Maintenance</td><td>Low</td><td>High</td></tr>
+      <tr><td>Pollution</td><td>Zero Emissions</td><td>High Emissions</td></tr>
+      <tr><td>Performance</td><td>Instant Torque</td><td>Good Torque</td></tr>
+      <tr><td>Range</td><td>300–500 km (per charge)</td><td>600–1000 km (per tank)</td></tr>
+      <tr><td>Initial Price</td><td>Higher</td><td>Lower</td></tr>
+    </table>
+  </div>
+
+  <!-- Car Finder Section -->
+  <div id="finder" class="info">
+    <h2>Car Finder – Choose by Price Range</h2>
+    <form class="car-form" onsubmit="findCars(event)">
+      <input type="number" id="minPrice" placeholder="Min Price (₹)" required>
+      <input type="number" id="maxPrice" placeholder="Max Price (₹)" required>
+      <button type="submit">Search Cars</button>
+    </form>
+    <div id="carResults"></div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div id="faq" class="info">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq">
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>1. Are EVs cheaper to maintain than diesel cars?</h4><p>Yes. EVs have fewer moving parts and don’t need oil changes, filters, or fuel pumps.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>2. How long does it take to charge an EV?</h4><p>Normal charging: 6–8 hours. Fast charging: 30–60 minutes (80% charge).</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>3. What is the lifespan of EV batteries?</h4><p>Most EV batteries last 8–10 years or around 1.5 lakh km.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>4. Do EVs have better acceleration than diesel cars?</h4><p>Yes, EVs deliver instant torque and faster pickup compared to diesel cars.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>5. Can EVs be used for long-distance travel?</h4><p>Yes, but charging stations availability is crucial. Diesel is still better for very long trips.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>6. Are diesel cars being banned?</h4><p>In many countries, diesel cars face bans or restrictions due to pollution concerns.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>7. Which is more eco-friendly: EV or diesel?</h4><p>EVs are more eco-friendly with zero tailpipe emissions, especially if powered by renewable energy.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>8. What is the resale value of EVs?</h4><p>Resale value is improving but currently lower than diesel due to battery concerns.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>9. Are EVs safe in accidents?</h4><p>Yes. EVs go through crash tests like any car. Batteries are well-protected with safety systems.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>10. What subsidies exist for EVs?</h4><p>Government subsidies and tax benefits vary by country and state, reducing purchase cost.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>11. Do EVs work in heavy rain or floods?</h4><p>Yes, EVs are waterproofed and safe in rain. However, driving in deep floods is not advised for any car.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>12. Which lasts longer: EV motor or diesel engine?</h4><p>EV motors can last longer since they have fewer parts and less wear compared to diesel engines.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>13. How much does it cost to replace an EV battery?</h4><p>Battery replacement costs ₹3–7 lakhs depending on the car, but warranty covers 8 years in most cases.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>14. Can EVs be charged at home?</h4><p>Yes. Most EVs come with a home charging setup compatible with normal sockets or wall chargers.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>15. Do EVs save money in the long run?</h4><p>Yes, despite higher upfront cost, savings on fuel and maintenance make them cheaper over 5–8 years.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>16. Are EVs suitable for rural areas?</h4><p>Not always, since rural areas may lack charging stations. Diesel is more practical there currently.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>17. Do EVs produce zero emissions?</h4><p>They produce no tailpipe emissions, but manufacturing (especially batteries) causes some emissions.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>18. How is the driving experience in an EV?</h4><p>Very smooth, quiet, and vibration-free compared to diesel cars.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>19. Do EVs have gears?</h4><p>No, most EVs have a single-speed transmission, making them easy to drive.</p></div>
+      <div class="faq-item" onclick="toggleFAQ(this)"><h4>20. Are there charging stations on highways?</h4><p>Yes, charging networks are expanding, and many highways now have EV fast-charging stations.</p></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer><p>&copy; 2025 EV vs Diesel | Made with HTML, CSS & JS</p></footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showInfo(sectionId) {
+      document.querySelectorAll('.info').forEach(div => div.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+      document.getElementById(sectionId).scrollIntoView({behavior: 'smooth'});
+    }
+
+    // Car Finder Logic
+    const cars = [
+      { name: "Tata Nexon EV", type: "EV", price: 1500000, features: "Range: 312km, Fast Charging, SUV" },
+      { name: "MG ZS EV", type: "EV", price: 2200000, features: "Range: 400km, SUV, Advanced Safety" },
+      { name: "Hyundai Kona EV", type: "EV", price: 2300000, features: "Range: 452km, Premium SUV" },
+      { name: "Hyundai Creta Diesel", type: "Diesel", price: 1200000, features: "SUV, 20kmpl mileage, Spacious" },
+      { name: "Mahindra Scorpio Diesel", type: "Diesel", price: 1600000, features: "Powerful SUV, 7-seater" },
+      { name: "Maruti Swift Diesel", type: "Diesel", price: 800000, features: "Hatchback, 25kmpl mileage" }
+    ];
+
+    function findCars(event) {
+      event.preventDefault();
+      const min = parseInt(document.getElementById("minPrice").value);
+      const max = parseInt(document.getElementById("maxPrice").value);
+      const results = cars.filter(car => car.price >= min && car.price <= max);
+
+      const resultDiv = document.getElementById("carResults");
+      resultDiv.innerHTML = results.length ? "" : "<p>No cars found in this range.</p>";
+      results.forEach(car => {
+        resultDiv.innerHTML += `
+          <div class="car-card">
+            <h4>${car.name} (${car.type})</h4>
+            <p><b>Price:</b> ₹${car.price.toLocaleString()}</p>
+            <p><b>Features:</b> ${car.features}</p>
+          </div>`;
+      });
+    }
+
+    // FAQ Toggle
+    function toggleFAQ(item) {
+      const p = item.querySelector("p");
+      p.style.display = p.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>
